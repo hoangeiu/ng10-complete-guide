@@ -46,11 +46,19 @@
           role="menu"
           aria-labelledby="navbarDropdown"
         >
-          <a role="menuitem" class="dropdown-item" style="cursor: pointer"
+          <a
+            role="menuitem"
+            class="dropdown-item"
+            style="cursor: pointer"
+            (click)="onSaveData()"
             >Save Data</a
           >
           <div class="dropdown-divider"></div>
-          <a role="menuitem" class="dropdown-item" style="cursor: pointer"
+          <a
+            role="menuitem"
+            class="dropdown-item"
+            style="cursor: pointer"
+            (click)="onFetchData()"
             >Fetch Data</a
           >
         </div>
