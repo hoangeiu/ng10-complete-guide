@@ -20,15 +20,21 @@
     id="navbarContent"
   >
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item" routerLinkActive="active">
+      <li class="nav-item" routerLinkActive="active" *ngIf="isAuthenticated">
         <a class="nav-link" routerLink="/recipes">Recipes</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="!isAuthenticated">
+        <a class="nav-link" routerLink="/auth">Authenticate</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/shopping-list">Shopping List</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
-      <li class="dropdown" dropdown>
+      <li class="mt-2 mr-2" *ngIf="isAuthenticated">
+        <a style="cursor: pointer" (click)="onLogout()">Logout</a>
+      </li>
+      <li class="dropdown" dropdown *ngIf="isAuthenticated">
         <a
           class="nav-link dropdown-toggle"
           dropdownToggle
