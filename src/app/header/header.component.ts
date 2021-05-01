@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { DataStorageService } from 'src/shared/data-storage.service';
-import { AuthService } from '../auth/auth.service';
+import * as authActions from '../auth/store/auth.actions';
+import * as recipesActions from '../recipes/store/recipe.actions';
 import { AppState } from '../store/app.reducer';
 
 @Component({
@@ -16,11 +16,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
   private userSub: Subscription;
 
-  constructor(
-    private dataStorageService: DataStorageService,
-    private authService: AuthService,
-    private store: Store<AppState>
-  ) {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.userSub = this.store
@@ -34,14 +30,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   onSaveData() {
-    this.dataStorageService.storeRecipes();
+    this.store.dispatch(new recipesActions.StoreRecipes());
   }
 
   onFetchData() {
-    this.dataStorageService.fetchRecipes().subscribe();
+    this.store.dispatch(new recipesActions.FetchRecipes());
   }
 
   onLogout() {
-    this.authService.logout();
+    this.store.dispatch(new authActions.Logout());
   }
 }

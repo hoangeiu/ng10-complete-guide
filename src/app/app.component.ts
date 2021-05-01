@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { AuthService } from './auth/auth.service';
+import { AppState } from './store/app.reducer';
+import * as authActions from './auth/store/auth.actions';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +12,12 @@ import { AuthService } from './auth/auth.service';
 export class AppComponent implements OnInit {
   title = 'ng10-complete-guide';
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private store: Store<AppState>
+  ) {}
 
   ngOnInit() {
-    this.authService.autoLogin();
+    this.store.dispatch(new authActions.AutoLogin());
   }
 }
