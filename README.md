@@ -1,7 +1,5 @@
 I started to learn Angular from scratch. Following the Udemy course, I created a website to manage recipes and add ingredients to shopping list, control aunthentication by Firebase API. As I mention, I study many new thing from Angular: the basic concept of Angular, databinding, directive, services and injection, routing, Observable (Subject), control Form, pipes, making http requets, authentication, dynamic components (ngIf & modalRef), evironments, lazy loading and deploy Angular app.
 
-(not finish yet, there is some modules outside of my app, coutinues to implement...)
-
 Key-features: Angular(10) features and Firebase.
 
 [Live Demo](https://ng10-complete-guide-9ac2d.firebaseapp.com/auth)
@@ -35,7 +33,6 @@ Key-features: Angular(10) features and Firebase.
 
 and so much more!
 
-
 # Ng10CompleteGuide
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.3.
@@ -51,4 +48,3 @@ In your terminal after you clone your project down, remember to run either `yarn
 Remember to replace the `firebaseAPIKey` variable in your `environment.ts` `environment.prod.ts` with your own config object from the firebase dashboard! Navigate to the project settings and scroll down to the config code. Copy the object in the code and replace the variable in your cloned code.
 
 ![alt text](https://i.ibb.co/K9PFfM7/ng10-complete-guide-api-key.png "image to firebase config")
-
